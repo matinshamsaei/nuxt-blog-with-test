@@ -54,6 +54,7 @@ export default {
   background-color: white;
   width: 90%;
   border-radius: 10px;
+  transition: .3s ease-in-out;
 }
 
 h2 {
@@ -84,6 +85,10 @@ a {
   border-radius: 0 0 10px 10px;
   padding: 10px;
   text-align: center;
+}
+
+.post-preview:hover {
+  transform: translateY(-5px);
 }
 
 a:hover .post-content,
