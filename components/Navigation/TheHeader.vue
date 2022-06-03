@@ -4,17 +4,13 @@
       <the-side-nav-toggle @toggle="$emit('sidenavToggle')" />
 
       <div class="logo">
-        <nuxt-link to="/">WD BLOG</nuxt-link>
+        <nuxt-link to="/">BLOG</nuxt-link>
       </div>
 
       <div class="spacer"></div>
 
       <div class="navigation-items">
         <ul class="nav-list">
-          <li class="nav-item">
-            <nuxt-link to="/posts">Blog</nuxt-link>
-          </li>
-
           <li class="nav-item">
             <nuxt-link to="/about">About</nuxt-link>
           </li>
@@ -52,7 +48,7 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: black;
+  background-color: #e1e1e1;
   z-index: 100;
   box-sizing: border-box;
   padding: 0 20px;
@@ -65,7 +61,7 @@ export default {
 
 .logo a {
   text-decoration: none;
-  color: white;
+  color: #565656;
 }
 
 .spacer {
@@ -95,12 +91,12 @@ export default {
 
 .nav-item a {
   text-decoration: none;
-  color: white;
+  color: #565656;
 }
 
 .nav-item a:hover,
 .nav-item a:active,
 .nav-item a.nuxt-link-active {
-  color: red;
+  color: #000;
 }
 </style>

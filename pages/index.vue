@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <section class="intro">
-      <h1>Home Page</h1>
+      <h1>Posts</h1>
     </section>
 
     <post-list :posts="posts"></post-list>
@@ -20,28 +20,17 @@ export default {
 
 <style scoped>
 .intro {
-  height: 300px;
-  position: relative;
   padding: 30px;
   box-sizing: border-box;
-  background-image: url("~assets/autumn.jpg");
+  background-color: #f6f6f6;
   background-position: center;
   background-size: cover;
 }
 
 .intro h1 {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  width: 90%;
   font-size: 1.5rem;
   color: black;
-  background-color: rgb(211, 211, 211);
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 3px 3px 3px black;
-  box-sizing: border-box;
-  border: 1px solid black;
+  margin: 0;
 }
 
 @media (min-width: 768px) {

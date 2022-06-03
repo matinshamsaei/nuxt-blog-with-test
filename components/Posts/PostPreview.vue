@@ -5,6 +5,7 @@
         class="post-thumbnail"
         :style="{ backgroundImage: 'url(' + thumbnail + ')' }"
       ></div>
+
       <div class="post-content">
         <h2>{{ title }}</h2>
         <p>{{ previewText }}</p>
@@ -49,10 +50,14 @@ export default {
 
 <style scoped>
 .post-preview {
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 2px #ccc;
+  box-shadow: 0 2px 6px #e8e8e8;
   background-color: white;
   width: 90%;
+  border-radius: 10px;
+}
+
+h2 {
+  margin-bottom: 10px;
 }
 
 a {
@@ -68,6 +73,7 @@ a {
 }
 
 .post-thumbnail {
+  border-radius: 10px 10px 0 0;
   width: 100%;
   height: 200px;
   background-position: center;
@@ -75,12 +81,13 @@ a {
 }
 
 .post-content {
+  border-radius: 0 0 10px 10px;
   padding: 10px;
   text-align: center;
 }
 
 a:hover .post-content,
 a:active .post-content {
-  background-color: #ccc;
+  background-color: #f4f4f4;
 }
 </style>

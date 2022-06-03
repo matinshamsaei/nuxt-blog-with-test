@@ -2,9 +2,10 @@
   <div class="admin-auth-page">
     <div class="auth-container">
       <form @submit.prevent="onSubmit">
-        <AppControlInput typeof="text" v-model="email"
-          >E-Mail Address</AppControlInput
-        >
+        <AppControlInput typeof="text" v-model="email">
+          E-Mail Address
+        </AppControlInput>
+
         <AppControlInput type="password" v-model="password"
           >Password</AppControlInput
         >
@@ -14,9 +15,16 @@
           btn-style="inverted"
           style="margin-left: 10px"
           @click="isLogin = !isLogin"
-          >Switch to {{ isLogin ? "Signup" : "Login" }}</AppButton
         >
+          Switch to {{ isLogin ? "Signup" : "Login" }}
+        </AppButton>
       </form>
+    </div>
+
+    <div class="backHome">
+      <AppButton type="button" btn-style="inverted" @click="backToHome">
+        Back To Home
+      </AppButton>
     </div>
   </div>
 </template>
@@ -46,6 +54,9 @@ export default {
         .then(() => this.$router.push("/admin"))
         .catch((e) => console.log(e));
     },
+    backToHome() {
+      this.$router.push("/");
+    },
   },
 };
 </script>
@@ -63,5 +74,10 @@ export default {
   margin: auto;
   padding: 10px;
   box-sizing: border-box;
+}
+
+.backHome {
+  margin-top: 30px;
+  text-align: center;
 }
 </style>
