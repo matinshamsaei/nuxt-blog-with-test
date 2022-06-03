@@ -54,7 +54,7 @@ export default {
   background-color: white;
   width: 90%;
   border-radius: 10px;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 h2 {

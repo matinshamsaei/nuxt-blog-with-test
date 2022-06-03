@@ -14,10 +14,11 @@
       Preview Text
     </app-control-input>
     <div class="app-buttons">
-      <app-button type="submit">Save</app-button>
+      <app-button class="save-btn" type="submit">Save</app-button>
       <app-button
         type="button"
         btn-style="cancel"
+        class="cancel-btn"
         style="margin-left: 10px"
         @click="onCancel"
       >

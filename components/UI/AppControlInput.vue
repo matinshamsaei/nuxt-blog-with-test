@@ -30,7 +30,6 @@ export default {
       type: String,
       default: "input",
     },
-
     value: {
       type: String,
       default: "",
