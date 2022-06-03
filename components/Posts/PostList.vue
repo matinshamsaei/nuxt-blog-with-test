@@ -7,41 +7,42 @@
       :title="post.title"
       :thumbnail="post.thumbnail"
       :previewText="post.previewText"
-      :isAdmin="isAdmin">
+      :isAdmin="isAdmin"
+    >
     </post-preview>
   </section>
 </template>
 
 <script>
-  import PostPreview from "./PostPreview";
+import PostPreview from "./PostPreview";
 
-  export default {
-    name: "PostList",
+export default {
+  name: "PostList",
 
-    components: {
-      PostPreview
+  components: {
+    PostPreview,
+  },
+
+  props: {
+    isAdmin: {
+      type: Boolean,
+      default: false,
     },
-
-    props: {
-      isAdmin: {
-        type: Boolean,
-        default: false
-      },
-      posts: {
-        type: Array,
-        required: true
-      }
-    }
-  }
+    posts: {
+      type: Array,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style scoped>
-  .post-list {
-    display: flex;
-    padding: 20px;
-    box-sizing: border-box;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
+.post-list {
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
 </style>

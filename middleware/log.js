@@ -1,3 +1,3 @@
-export default function (context) {
-  console.log('Middleware executed!');
+export default function(context) {
+  console.log("Middleware executed!");
 }

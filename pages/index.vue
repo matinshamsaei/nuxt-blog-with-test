@@ -9,58 +9,44 @@
 </template>
 
 <script>
-  export default {
-    // **
-    //  in fetch we shouldn't return data and we can set data to our store (vuex)
-    // - - - -
-    // for the solving problem we can use promise or callback
-    // context must be first and callback second
-    // first part of callback is for when an error occurred
-    // **
-
-    computed: {
-      posts() {
-        return this.$store.getters.loadedPosts
-      }
-    }
-
-    // data() {
-    //   return {
-    //     posts: []
-    //   }
-    // },
-  }
+export default {
+  computed: {
+    posts() {
+      return this.$store.getters.loadedPosts;
+    },
+  },
+};
 </script>
 
 <style scoped>
-  .intro {
-    height: 300px;
-    position: relative;
-    padding: 30px;
-    box-sizing: border-box;
-    background-image: url('~assets/autumn.jpg');
-    background-position: center;
-    background-size: cover;
-  }
+.intro {
+  height: 300px;
+  position: relative;
+  padding: 30px;
+  box-sizing: border-box;
+  background-image: url("~assets/autumn.jpg");
+  background-position: center;
+  background-size: cover;
+}
 
+.intro h1 {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 90%;
+  font-size: 1.5rem;
+  color: black;
+  background-color: rgb(211, 211, 211);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px black;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+@media (min-width: 768px) {
   .intro h1 {
-    position: absolute;
-    top: 10%;
-    left: 5%;
-    width: 90%;
-    font-size: 1.5rem;
-    color: black;
-    background-color: rgb(211, 211, 211);
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px black;
-    box-sizing: border-box;
-    border: 1px solid black;
+    font-size: 2rem;
   }
-
-  @media (min-width: 768px) {
-    .intro h1 {
-      font-size: 2rem;
-    }
-  }
+}
 </style>

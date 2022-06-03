@@ -1,17 +1,26 @@
 <template>
   <form @submit.prevent="onSave">
-    <app-control-input v-model="editedPost.author"> Author Name </app-control-input>
+    <app-control-input v-model="editedPost.author">
+      Author Name
+    </app-control-input>
     <app-control-input v-model="editedPost.title"> Title </app-control-input>
-    <app-control-input v-model="editedPost.thumbnail"> Thumbnail link </app-control-input>
-    <app-control-input controlType="textarea" v-model="editedPost.content"> Content </app-control-input>
-    <app-control-input controlType="textarea" v-model="editedPost.previewText"> Preview Text </app-control-input>
+    <app-control-input v-model="editedPost.thumbnail">
+      Thumbnail link
+    </app-control-input>
+    <app-control-input controlType="textarea" v-model="editedPost.content">
+      Content
+    </app-control-input>
+    <app-control-input controlType="textarea" v-model="editedPost.previewText">
+      Preview Text
+    </app-control-input>
     <div class="app-buttons">
       <app-button type="submit">Save</app-button>
       <app-button
         type="button"
         btn-style="cancel"
         style="margin-left: 10px"
-        @click="onCancel">
+        @click="onCancel"
+      >
         Cancel
       </app-button>
     </div>
@@ -19,61 +28,62 @@
 </template>
 
 <script>
-  import AppButton from "../UI/AppButton";
-  import AppControlInput from "../UI/AppControlInput";
+import AppButton from "../UI/AppButton";
+import AppControlInput from "../UI/AppControlInput";
 
-  export default {
-    name: "AdminPostForm",
+export default {
+  name: "AdminPostForm",
 
-    components: {
-      AppButton,
-      AppControlInput
+  components: {
+    AppButton,
+    AppControlInput,
+  },
+
+  props: {
+    post: {
+      type: Object,
+      required: false,
+    },
+  },
+
+  data() {
+    return {
+      editedPost: this.post
+        ? { ...this.post }
+        : {
+            author: "",
+            title: "",
+            thumbnail: "",
+            content: "",
+            previewText: "",
+          },
+    };
+  },
+
+  methods: {
+    onSave() {
+      this.$emit("submit", this.editedPost);
     },
 
-    props: {
-      post: {
-        type: Object,
-        required: false
-      }
+    onCancel() {
+      this.$router.push("/admin");
     },
-
-    data() {
-      return {
-        // if this.post true -> show that , else show our default object
-        editedPost: this.post ? { ...this.post } : {
-          author: '',
-          title: '',
-          thumbnail: '',
-          content: '',
-          previewText: ''
-        }
-      }
-    },
-
-    methods: {
-      onSave() {
-        this.$emit('submit', this.editedPost)
-      },
-
-      onCancel() {
-        this.$router.push('/admin')
-      }
-    }
-  }
+  },
+};
 </script>
 
 <style scoped>
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
-  .app-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.app-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 </style>

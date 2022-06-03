@@ -1,6 +1,5 @@
-export default function (context) {
-  console.log("[Middleware] Just Auth");
+export default function(context) {
   if (!context.store.getters.authenticated) {
-    context.redirect('/admin/auth')
+    context.redirect("/admin/auth");
   }
 }

@@ -24,8 +24,6 @@
 
 <script>
 export default {
-  // middleware: 'log',
-
   asyncData(context) {
     if (context.payload) {
       return {

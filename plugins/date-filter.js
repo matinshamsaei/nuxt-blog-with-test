@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue from "vue";
 
 const months = [
   "January",
@@ -28,4 +28,4 @@ function formatDate(inputDate) {
   return formattedDate;
 }
 
-Vue.filter('dateFilter', dateFilter);
+Vue.filter("dateFilter", dateFilter);

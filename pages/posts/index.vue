@@ -3,21 +3,13 @@
 </template>
 
 <script>
-  export default {
-    name: "index",
+export default {
+  name: "index",
 
-    computed: {
-      posts() {
-        return this.$store.getters.loadedPosts
-      }
-    }
-
-    // created() {
-    //   this.$store.dispatch('setPosts', this.posts)
-    // }
-  }
+  computed: {
+    posts() {
+      return this.$store.getters.loadedPosts;
+    },
+  },
+};
 </script>
-
-<style scoped>
-
-</style>
