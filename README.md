@@ -13,9 +13,3 @@ $ npm run dev
 $ npm run build
 $ npm run start
 ```
-
-For detailed explanation on how things work, check out:
-[Nuxt.js docs](https://nuxtjs.org).
-[Jest.io docs](https://jestjs.io).
-[Vue Test Utils docs](https://vue-test-utils.vuejs.org).
-
