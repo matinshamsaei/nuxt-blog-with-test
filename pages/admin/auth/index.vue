@@ -9,9 +9,10 @@
         <AppControlInput type="password" v-model="password"
           >Password</AppControlInput
         >
-        <AppButton type="submit">{{ isLogin ? "Login" : "Sign Up" }}</AppButton>
+        <AppButton class="submit-btn" type="submit" @click="onSubmit">{{ isLogin ? "Login" : "Sign Up" }}</AppButton>
         <AppButton
           type="button"
+          class="switch-btn"
           btn-style="inverted"
           style="margin-left: 10px"
           @click="isLogin = !isLogin"
@@ -22,7 +23,7 @@
     </div>
 
     <div class="backHome">
-      <AppButton type="button" btn-style="inverted" @click="backToHome">
+      <AppButton type="button" btn-style="inverted" class="back-to-home-btn" @click="backToHome">
         Back To Home
       </AppButton>
     </div>

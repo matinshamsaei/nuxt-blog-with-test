@@ -3,7 +3,7 @@
     <app-control-input v-model="editedPost.author">
       Author Name
     </app-control-input>
-    <app-control-input v-model="editedPost.title"> Title </app-control-input>
+    <app-control-input class="title-input" v-model="editedPost.title"> Title </app-control-input>
     <app-control-input v-model="editedPost.thumbnail">
       Thumbnail link
     </app-control-input>
@@ -14,7 +14,7 @@
       Preview Text
     </app-control-input>
     <div class="app-buttons">
-      <app-button class="save-btn" type="submit">Save</app-button>
+      <app-button class="save-btn" type="submit" @click="onSave">Save</app-button>
       <app-button
         type="button"
         btn-style="cancel"

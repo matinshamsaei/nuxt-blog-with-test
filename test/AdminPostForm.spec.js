@@ -1,4 +1,4 @@
-import { mount, createLocalVue } from "@vue/test-utils";
+import { mount, shallowMount, createLocalVue } from "@vue/test-utils";
 import VueRouter from "vue-router";
 
 const localVue = createLocalVue();
@@ -7,8 +7,27 @@ const router = new VueRouter();
 
 import AdminPostForm from "@/components/Admin/AdminPostForm";
 
-describe("test Admin Post Form", () => {
+describe("Test Admin Post Form Methods", () => {
   const wrapper = mount(AdminPostForm, {
+    router,
+    localVue
+  });
+
+  it("test save method", () => {
+    const saveBtn = wrapper.find(".save-btn");
+    saveBtn.trigger("click");
+    expect(wrapper.emitted()).toHaveProperty("submit");
+  });
+
+  it("test cancel method", async () => {
+    const cancelBtn = wrapper.find(".cancel-btn");
+    await cancelBtn.trigger("click");
+    expect(wrapper.vm.$route.path).toBe("/admin");
+  });
+});
+
+describe("test Admin Post Form Props", () => {
+  const wrapper = shallowMount(AdminPostForm, {
     router,
     localVue,
     propsData: {
@@ -19,20 +38,12 @@ describe("test Admin Post Form", () => {
     }
   });
 
-  it("test editedPost Data", () => {
+  it("test editedPost data", () => {
     expect(wrapper.vm.$data.editedPost.id).toBe("1");
   });
 
-  // it("test save method", () => {
-  //   wrapper.find(".save-btn").trigger("click");
-  //   expect(wrapper.emitted()).toHaveProperty("submit");
-  // });
-
-  it("test cancel method", async () => {
-    const cancelBtn = wrapper.find(".cancel-btn");
-
-    await cancelBtn.trigger("click");
-
-    expect(wrapper.vm.$route.path).toBe("/admin");
+  it("test title input", async () => {
+    const titleInp = wrapper.find(".title-input");
+    expect(titleInp.html().includes("Test Post")).toBeTruthy();
   });
 });
