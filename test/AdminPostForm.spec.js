@@ -6,11 +6,21 @@ localVue.use(VueRouter);
 const router = new VueRouter();
 
 import AdminPostForm from "@/components/Admin/AdminPostForm";
+import AppButton from "@/components/UI/AppButton";
+import AppControlInput from "@/components/UI/AppControlInput";
 
 describe("Test Admin Post Form Methods", () => {
   const wrapper = mount(AdminPostForm, {
     router,
     localVue
+  });
+
+  it("test AppButton existence", () => {
+    expect(wrapper.contains(AppButton)).toBe(true);
+  });
+
+  it("test AppControlInput existence", () => {
+    expect(wrapper.contains(AppControlInput)).toBe(true);
   });
 
   it("test save method", () => {
@@ -33,7 +43,10 @@ describe("test Admin Post Form Props", () => {
     propsData: {
       post: {
         id: "1",
-        title: "Test Post"
+        title: "Test Post",
+        author: "admin",
+        content: "sample content",
+        previewText: "sample text"
       }
     }
   });
@@ -45,5 +58,20 @@ describe("test Admin Post Form Props", () => {
   it("test title input", async () => {
     const titleInp = wrapper.find(".title-input");
     expect(titleInp.html().includes("Test Post")).toBeTruthy();
+  });
+
+  it("test author input", async () => {
+    const authorInp = wrapper.find(".author-input");
+    expect(authorInp.html().includes("admin")).toBeTruthy();
+  });
+
+  it("test content input", async () => {
+    const contentInp = wrapper.find(".content-input");
+    expect(contentInp.html().includes("sample content")).toBeTruthy();
+  });
+
+  it("test previewText input", async () => {
+    const previewTextInp = wrapper.find(".preview-text-input");
+    expect(previewTextInp.html().includes("sample text")).toBeTruthy();
   });
 });

@@ -1,12 +1,9 @@
-import { mount, RouterLinkStub } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 
 import PostPreview from "@/components/Posts/PostPreview";
 
 describe("test Post Preview", () => {
   const wrapper = mount(PostPreview, {
-    stubs: {
-      NuxtLink: RouterLinkStub
-    },
     propsData: {
       isAdmin: false,
       id: "2",

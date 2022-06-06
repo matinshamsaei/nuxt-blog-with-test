@@ -34,7 +34,6 @@ export default {
 };
 </script>
 
-
 <style scoped>
 .sidenav-container {
   height: 100%;

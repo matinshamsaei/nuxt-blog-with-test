@@ -1,16 +1,16 @@
 <template>
   <form @submit.prevent="onSave">
-    <app-control-input v-model="editedPost.author">
+    <app-control-input class="author-input" v-model="editedPost.author">
       Author Name
     </app-control-input>
     <app-control-input class="title-input" v-model="editedPost.title"> Title </app-control-input>
     <app-control-input v-model="editedPost.thumbnail">
       Thumbnail link
     </app-control-input>
-    <app-control-input controlType="textarea" v-model="editedPost.content">
+    <app-control-input class="content-input" controlType="textarea" v-model="editedPost.content">
       Content
     </app-control-input>
-    <app-control-input controlType="textarea" v-model="editedPost.previewText">
+    <app-control-input class="preview-text-input" controlType="textarea" v-model="editedPost.previewText">
       Preview Text
     </app-control-input>
     <div class="app-buttons">
