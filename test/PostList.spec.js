@@ -1,9 +1,19 @@
-import { mount } from "@vue/test-utils";
+import { mount, createLocalVue, RouterLinkStub } from "@vue/test-utils";
+import VueRouter from "vue-router";
+
+const localVue = createLocalVue();
+localVue.use(VueRouter);
+const router = new VueRouter();
 
 import PostList from "@/components/Posts/PostList";
 
 describe("test Post List", () => {
   const wrapper = mount(PostList, {
+    localVue,
+    router,
+    stubs: {
+      NuxtLink: RouterLinkStub
+    },
     propsData: {
       isAdmin: true,
       posts: [

@@ -1,4 +1,9 @@
-import { mount, shallowMount, createLocalVue } from "@vue/test-utils";
+import {
+  mount,
+  shallowMount,
+  createLocalVue,
+  RouterLinkStub
+} from "@vue/test-utils";
 import VueRouter from "vue-router";
 
 const localVue = createLocalVue();
@@ -12,7 +17,10 @@ import AppControlInput from "@/components/UI/AppControlInput";
 describe("Test Admin Post Form Methods", () => {
   const wrapper = mount(AdminPostForm, {
     router,
-    localVue
+    localVue,
+    stubs: {
+      NuxtLink: RouterLinkStub
+    }
   });
 
   it("test AppButton existence", () => {
@@ -40,6 +48,9 @@ describe("test Admin Post Form Props", () => {
   const wrapper = shallowMount(AdminPostForm, {
     router,
     localVue,
+    stubs: {
+      NuxtLink: RouterLinkStub
+    },
     propsData: {
       post: {
         id: "1",
