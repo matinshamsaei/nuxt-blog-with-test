@@ -7,23 +7,19 @@
 </template>
 
 <script>
-  export default {
-    name: "index",
+export default {
+  name: "index",
 
-    layout: 'admin',
+  layout: "admin",
 
-    middleware: ['check-auth', 'authenticate'],
+  middleware: ["check-auth", "authenticate"],
 
-    methods: {
-      onSubmit(postData) {
-        this.$store.dispatch('addPost', postData).then(() => {
-          this.$router.push('/admin')
-        })
-      }
-    }
-  }
+  methods: {
+    onSubmit(postData) {
+      this.$store.dispatch("addPost", postData).then(() => {
+        this.$router.push("/admin");
+      });
+    },
+  },
+};
 </script>
-
-<style scoped>
-
-</style>

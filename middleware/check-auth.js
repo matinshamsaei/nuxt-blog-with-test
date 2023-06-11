@@ -1,4 +1,3 @@
-export default function (context) {
-  console.log("[Middleware] Check Auth");
+export default function(context) {
   context.store.dispatch("initAuth", context.req);
 }

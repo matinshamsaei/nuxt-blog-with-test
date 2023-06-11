@@ -3,10 +3,12 @@
     <section class="post">
       <h1 class="post-title">{{ loadedPost.title }}</h1>
       <div class="post-details">
-        <div class="post-detail">
+        <div class="post-detail post-update-date">
           Last updated on: {{ loadedPost.updatedDate | dateFilter }}
         </div>
-        <div class="post-detail">Written by {{ loadedPost.author }}</div>
+        <div class="post-detail post-author">
+          Written by {{ loadedPost.author }}
+        </div>
       </div>
       <p class="post-content">{{ loadedPost.content }}</p>
     </section>
@@ -24,8 +26,6 @@
 
 <script>
 export default {
-  // middleware: 'log',
-
   asyncData(context) {
     if (context.payload) {
       return {
@@ -77,6 +77,10 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.post-content {
+  margin: 10px 0;
 }
 
 @media (min-width: 768px) {

@@ -7,15 +7,12 @@
 $ npm install
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+$ npm run serve
 
 # build for production and launch server
 $ npm run build
 $ npm run start
+
+# test project
+$ npm run test
 ```
-
-For detailed explanation on how things work, check out:
-[Nuxt.js docs](https://nuxtjs.org).
-[Jest.io docs](https://jestjs.io).
-[Vue Test Utils docs](https://vue-test-utils.vuejs.org).
-

@@ -1,54 +1,37 @@
-import { mount, RouterLinkStub } from '@vue/test-utils'
-import PostPreview from '@/components/Posts/PostPreview'
-// import VueRouter from 'vue-router'
+import { mount, createLocalVue, RouterLinkStub } from "@vue/test-utils";
+import VueRouter from "vue-router";
 
-// const localVue = createLocalVue()
+const localVue = createLocalVue();
+localVue.use(VueRouter);
+const router = new VueRouter();
 
-// so u can't mock $route and $router in cmp mock
-// localVue.use(VueRouter)
-// const router = new VueRouter()
+import PostPreview from "@/components/Posts/PostPreview";
 
-const $route = {
-    path: '/posts/2',
-
-    params: {
-        id: 2,
+describe("test Post Preview", () => {
+  const wrapper = mount(PostPreview, {
+    localVue,
+    router,
+    stubs: {
+      NuxtLink: RouterLinkStub
     },
-};
+    propsData: {
+      isAdmin: false,
+      id: "2",
+      thumbnail: "https://cdn.mos.cms.futurecdn.net/8Zw7hWD5ZaquyftsRbEmof.jpg",
+      title: "matin",
+      previewText: "best post"
+    }
+  });
 
-describe('mock $route', () => {
-    const wrapper = mount(PostPreview, {
-        // localVue,
-        // router,
+  it("test computed return for link id and isAdmin Prop", () => {
+    expect(wrapper.vm.postLink).toEqual("/posts/2");
+  });
 
-        // stub nuxt link for vue warn (unknown custom element)
-        // WITH TWO WAYS: 
-        // 1
-        stubs: {
-            NuxtLink: RouterLinkStub
-        },
-        // 2
-        // stubs: ['nuxt-link'],
+  it("test h2 text as title", () => {
+    expect(wrapper.find("h2").text()).toEqual("matin");
+  });
 
-        mocks: {
-            $route
-        },
-
-        propsData: {
-            isAdmin: false,
-            id: "2",
-            thumbnail: "",
-            title: "matin",
-            previewText: ""
-        }
-    });
-
-    it('correct computed link id', () => {
-        expect(wrapper.vm.postLink).toEqual("/posts/2");
-    });
-
-    it('check route path and id param', () => {
-        expect(wrapper.vm.$route.path).toEqual('/posts/2');
-        expect(wrapper.vm.$route.params.id).toEqual(2);
-    })
-})
+  it("test p text as preview text", () => {
+    expect(wrapper.find("p").text()).toEqual("best post");
+  });
+});

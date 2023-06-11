@@ -1,20 +1,16 @@
 <template>
   <div class="header-container">
     <header class="the-header">
-      <the-side-nav-toggle @toggle="$emit('sidenavToggle')"/>
+      <the-side-nav-toggle @toggle="$emit('sidenavToggle')" />
 
       <div class="logo">
-        <nuxt-link to="/">WD BLOG</nuxt-link>
+        <nuxt-link to="/">BLOG</nuxt-link>
       </div>
 
       <div class="spacer"></div>
 
       <div class="navigation-items">
         <ul class="nav-list">
-          <li class="nav-item">
-            <nuxt-link to="/posts">Blog</nuxt-link>
-          </li>
-
           <li class="nav-item">
             <nuxt-link to="/about">About</nuxt-link>
           </li>
@@ -29,78 +25,78 @@
 </template>
 
 <script>
-  import TheSideNavToggle from "~/components/Navigation/TheSideNavToggle";
+import TheSideNavToggle from "~/components/Navigation/TheSideNavToggle";
 
-  export default {
-    name: "TheHeader",
-    components: {
-      TheSideNavToggle
-    }
-  };
+export default {
+  name: "TheHeader",
+  components: {
+    TheSideNavToggle,
+  },
+};
 </script>
 
 
 <style scoped>
-  .header-container {
-    height: 60px;
-  }
+.header-container {
+  height: 60px;
+}
 
-  .the-header {
-    width: 100%;
-    position: fixed;
-    height: 60px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: black;
-    z-index: 100;
-    box-sizing: border-box;
-    padding: 0 20px;
-  }
+.the-header {
+  width: 100%;
+  position: fixed;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #e1e1e1;
+  z-index: 100;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
 
-  .logo {
-    margin: 0 10px;
-    font-size: 1.3rem;
-  }
+.logo {
+  margin: 0 10px;
+  font-size: 1.3rem;
+}
 
-  .logo a {
-    text-decoration: none;
-    color: white;
-  }
+.logo a {
+  text-decoration: none;
+  color: #565656;
+}
 
-  .spacer {
-    flex: 1;
-  }
+.spacer {
+  flex: 1;
+}
 
+.navigation-items {
+  display: none;
+}
+
+@media (min-width: 768px) {
   .navigation-items {
-    display: none;
+    display: block;
   }
+}
 
-  @media (min-width: 768px) {
-    .navigation-items {
-      display: block;
-    }
-  }
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
 
-  .nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-  }
+.nav-item {
+  margin: 0 10px;
+}
 
-  .nav-item {
-    margin: 0 10px;
-  }
+.nav-item a {
+  text-decoration: none;
+  color: #565656;
+}
 
-  .nav-item a {
-    text-decoration: none;
-    color: white;
-  }
-
-  .nav-item a:hover,
-  .nav-item a:active,
-  .nav-item a.nuxt-link-active {
-    color: red;
-  }
+.nav-item a:hover,
+.nav-item a:active,
+.nav-item a.nuxt-link-active {
+  color: #000;
+}
 </style>
