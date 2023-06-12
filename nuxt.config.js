@@ -39,7 +39,9 @@ export default {
 
   buildModules: [],
 
-  build: {},
+  build: {
+    publicPath: process.env.NODE_ENV === "production" ? "/nuxt-blog/" :  "/"
+  },
 
   env: {
     baseUrl: process.env.BASE_URL || "https://nuxt-blog-a8c37.firebaseio.com",

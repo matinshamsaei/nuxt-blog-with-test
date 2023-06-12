@@ -7,6 +7,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "deploy": "sh deploy.sh",
     "test": "jest"
   },
   "dependencies": {
